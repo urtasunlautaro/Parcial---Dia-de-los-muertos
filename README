@@ -1,0 +1,82 @@
+
+
+
+Dulce o truco! Para el Dia de los Muertos una empresa nos pidió un sistema que lleve el control de los sustos en una ciudad.
+
+
+Sustos
+
+Todos los niños de la festividad cuentan con 2 Elementos característicos : un Traje y un Maquillaje.
+
+● Todos los maquillajes asustan el mismo valor (actualmente un valor de 3), ese valor debe poder modificarse en un futuro y verse reflejado tanto en instancias nuevas como previas por igual..
+
+● El traje asusta según sea el personaje que represente:
+○ Tiernos: (trajes como Winnie Pooh o Sullivan) asustan un valor de 2.
+○ Terroríficos: (trajes como Jason o George Bush) asustan un valor de 5.
+
+
+La capacidad de asustar de un Ninio se calcula como la sumatoria del susto que generan los elementos que tenga puestos multiplicado por la actitud del niño (un número entero):
+
+
+Cuando un niño intenta asustar a un adulto, si lo logra, recibe de éste una cierta cantidad de caramelos, que guarda en su bolsa. 
+Todos los Adultos tienen un nivel de tolerancia y no todos los adultos son igualmente propensos a asustarse:
+
+● Los Adultos Comunes sólo se asustan si tienen una tolerancia menor que la capacidad de susto del niño, y dan tantos caramelos como la mitad de su tolerancia.
+
+La capacidad de asustar de un Ninio se calcula como la sumatoria del susto que generan los elementos que tenga puestos multiplicado por la actitud del niño (un número entero):
+
+
+Cuando un niño intenta asustar a un adulto, si lo logra, recibe de éste una cierta cantidad de caramelos, que guarda en su bolsa. 
+Todos los Adultos tienen un nivel de tolerancia y no todos los adultos son igualmente propensos a asustarse:
+
+● Los Adultos Comunes sólo se asustan si tienen una tolerancia menor que la capacidad de susto del niño, y dan tantos caramelos como la mitad de su tolerancia.
+
+● Los Abuelos simulan asustarse siempre, y entregan la mitad de los caramelos de un adulto común.
+
+● Los Adultos Necios nunca se asustan.
+
+
+
+1. Traje y Maquillaje deben exponer la misma interfaz de uso, forzar esta situación.
+
+2. Implementar el método int capacidadDeSusto() en Ninio que devuelva la capacidad de susto total del niño.
+
+3.Implementar el método void intentarAsustar(Adulto adulto) en Ninio que trate de asustar a un Adulto y acumule los dulces obtenidos, de haber obtenido alguno.
+
+4. Implementar las clases, interfaces y métodos que considere necesarios para que los Adultos respondan de la manera esperada ante los sustos de los Ninios, respetando la especificación.
+
+Alimentacion
+
+Los niños a veces comen cierta cantidad de sus caramelos. Cuando esto ocurre,
+disminuye la cantidad de caramelos en su haber.
+
+5. Implementar el método void comer(int cantidad) en Ninio, dado que si no tiene suficientes caramelos falle lanzando la excepcion chequeada CaramelosInsuficientesException con el mensaje “La cantidad de caramelos que se posee es inferior a la demandada”, y en caso de tener, reduzca la cantidad demandada.
+
+
+
+Legiones
+
+Los niños son más efectivos si asustan en grupos, que son llamados “legiones de terror”. De estas sabemos que:
+
+●	La capacidad de asustar de una legión es equivalente a la sumatoria las capacidades de sus miembros
+
+●	Las legiones también pueden asustar y recibir caramelos. Sin embargo, los caramelos van a las arcas del líder de la legión. Siendo líder el miembro con mayor capacidad de asustar.
+
+
+1.	Implementar el método Ninio elegirLider(List<Ninio> miembros), que resuelve la lógica de elección y retorna al líder elegido entre el conjunto de miembros. 
+
+2.	Implementar el constructor Legion(List<Ninio> miembros) que dado un conjunto de niños guarde al líder y a los miembros para futuras consultas. 
+
+3.	Hacer que una Legion pueda asustar a un Adulto, implementar el método void intentarAsustarA(Adulto adulto) sabiendo que el adulto se asusta con el mensaje int recibirSusto(int capacidadDeSusto), que devuelve una cantidad caramelos (si no fue asustado será 0). Asumir que los Ninios cuentan con el metodo recibirCaramelos(int cantidad).
+
+
+Reportes
+
+4.	Resultaría de utilidad mantener un registro de los sustos dados por la Legion. Implementar void registrarSusto(Adulto adulto, boolean fueAsustado) que guarde la información en un mapa del tipo Map<Adulto, Boolean> registroDeSustos, declarar dicho Mapa.
+
+Implementar el método int sustosTotalesDados() que devuelva la cantidad total de sustos dados por la Legion, utilizando el mapa registroDeSustos para obtener dicha información.
+
+5.	Implementar el método void reportar() en Legion, que imprima un archivo “reporte.txt” a todos los integrantes actuales de la Legion con el formato 
+“NOMBRE, PODER_DE_SUSTO\n”. Asumiendo que los Ninios de la Legion cuentan con los mensajes getNombre() y getPoderDeSusto().
+
+Frente a un error de escritura en el archivo (IOException), se debe imprimir por consola “Error de escritura en reporte de Legion”.
